@@ -51,6 +51,21 @@ Options:
   -p <n>        Use n-th platform
 ```
 
+### Example
+
+```
+echo -e "abc\n123\n\nhello, world" | ./hash SHA-1
+```
+
+Output:
+
+```
+a9993e364706816aba3e25717850c26c9cd0d89d
+40bd001563085fc35165329ea1ff5c5ecbdbbeef
+da39a3ee5e6b4b0d3255bfef95601890afd80709
+b7e23ec29af22b0b4e41da31e868d57226121c84
+```
+
 ## Motivation
 
 Recently, I've started delving into hash functions and finding them very
