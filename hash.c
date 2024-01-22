@@ -56,7 +56,13 @@ cl_int build_program(cl_context ctx, const char *filename, cl_program *program);
 
 const char *clGetErrorString(cl_int error);
 
-static hash_info_t HASH_FUNCTIONS[] = {NULL, NULL, NULL, 0, NULL};
+void print_sha1(void *hash) {
+  u32 *h = hash;
+  printf("%08x%08x%08x%08x%08x\n", h[0], h[1], h[2], h[3], h[4]);
+}
+
+static hash_info_t HASH_FUNCTIONS[] = {
+    {"SHA-1", "sha1.cl", "sha1", 5 * sizeof(u32), print_sha1}};
 
 cl_int hash(cl_context ctx, cl_kernel kernel, cl_command_queue queue,
             hash_info_t *h, u32 items, metadata_t *metadata, u8 *data,
